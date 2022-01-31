@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Shelter.Models;
 using System.Linq;
+using System;
 
 namespace Shelter.Controllers
 {
@@ -18,7 +19,7 @@ namespace Shelter.Controllers
       _db = db;
     }
 
-    // GET api/animals
+
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Animal>>> Get(string species)
     {
@@ -32,7 +33,7 @@ namespace Shelter.Controllers
       return await query.ToListAsync();
     }
 
-    // POST api/animals
+
     [HttpPost]
     public async Task<ActionResult<Animal>> Post(Animal animal)
     {
@@ -43,7 +44,7 @@ namespace Shelter.Controllers
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Animal>> GetAnimal(int id)
+    public async Task<ActionResult<Animal>> GetAnimal([FromQuery]int id)
     {
         var animal = await _db.Animals.FindAsync(id);
 
@@ -56,7 +57,7 @@ namespace Shelter.Controllers
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, Animal animal)
+    public async Task<IActionResult> Put([FromQuery]int id, [FromBody]Animal animal)
     {
       if (id != animal.AnimalId)
       {
@@ -90,7 +91,7 @@ namespace Shelter.Controllers
     }
     
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteAnimal(int id)
+    public async Task<IActionResult> DeleteAnimal([FromQuery]int id)
     {
       var animal = await _db.Animals.FindAsync(id);
       if (animal == null)

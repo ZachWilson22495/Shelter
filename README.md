@@ -40,6 +40,32 @@ _An API built to house information in regards to all the wonderful animals avail
 * Use your terminal to navigate back to 'Shelter.Solution/Shelter' and run 'dotnet run' to activate application.
 * Use Postman to view and edit the API's list of animals.
 
+## Endpoints
+
+Base URL: https://localhost:5000/api
+
+Example Query
+https://localhost:5000/api/animals/4
+
+Sample JSON Response
+{
+    "animalId": 4,
+    "name": "Tater Tot",
+    "species": "Dog",
+    "breed": "Pomeranian",
+    "age": 2,
+    "sex": "Male"
+}
+
+## Path Parameters
+
+Parameter	| Type | Default | Required |	Description
+  Name	  |string|	none   |	 true   |	Return matches by name.
+  species	|string|	none	 |   true	  | Return any animal who matches selected species.
+  breed	  |string|	none	 |   true	  | Return animals of inputted breed.
+  age     | int  |  none   |   true   | Return any animal who's age matches input
+  sex	    |string|	none	 |   true	  | Return all animals of selected breed.
+
 ## Known Bugs
 
 Currently no known bugs.
