@@ -11,6 +11,7 @@
 * .NET
 * Entity
 * Sql
+* Swagger
 
 ## Description
 
@@ -38,6 +39,7 @@ _An API built to house information in regards to all the wonderful animals avail
 * Run 'dotnet restore' in your terminal to install bin & obj folders.
 
 * Use your terminal to navigate back to 'Shelter.Solution/Shelter' and run 'dotnet run' to activate application.
+* In your search bar, type 'localhost:5000/swagger/index.html' to access Swagger interface
 * Use Postman to view and edit the API's list of animals.
 
 ## Endpoints
